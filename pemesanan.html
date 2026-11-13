@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pemesanan - Cahaya Idola</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h2>Cahaya Idola</h2>
+  <nav>
+    <a href="index.html">Beranda</a>
+    <a href="produk.html">Produk</a>
+    <a href="tentang.html">Tentang Kami</a>
+    <a href="pemesanan.html">Pemesanan</a>
+    <a href="kontak.html">Kontak</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <p class="label">PEMESANAN ONLINE</p>
+  <h1>Pesan Kerupuk Favoritmu!</h1>
+  <p>Isi formulir di bawah ini untuk memesan Kerupuk Udang Bawang Cahaya Idola.</p>
+
+  <div class="kartu-pesan">
+    <h2>Kerupuk Udang Bawang</h2>
+    <p>Harga: Rp4.000 / ikat</p>
+
+    <form id="formPesanan">
+      <p>Nama Pemesan</p>
+      <input type="text" id="nama" placeholder="Masukkan nama kamu" required>
+
+      <p>Jumlah Pesanan (ikat)</p>
+      <input type="number" id="jumlah" min="1" placeholder="Contoh: 5" required>
+
+      <p>Alamat Pengiriman</p>
+      <textarea id="alamat" placeholder="Masukkan alamat lengkap" required></textarea>
+
+      <p>Catatan Pesanan</p>
+      <textarea id="catatan" placeholder="Catatan tambahan (opsional)"></textarea>
+
+      <button type="submit" class="tombol wa">Kirim Pesanan ke WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Cahaya Idola</p>
+</footer>
+
+<script>
+document.getElementById("formPesanan").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const nama = document.getElementById("nama").value;
+  const jumlah = Number(document.getElementById("jumlah").value);
+  const alamat = document.getElementById("alamat").value;
+  const catatan = document.getElementById("catatan").value;
+  const total = jumlah * 4000;
+
+  const pesan = `Halo Cahaya Idola, saya ingin memesan:
+
+Nama: ${nama}
+Produk: Kerupuk Udang Bawang
+Jumlah: ${jumlah} ikat
+Total: Rp${total.toLocaleString("id-ID")}
+Alamat: ${alamat}
+Catatan: ${catatan}`;
+
+  window.open("https://wa.me/6282138638014?text=" + encodeURIComponent(pesan), "_blank");
+});
+</script>
+
+</body>
+</html>
